@@ -4,8 +4,8 @@ doctrine:
         dbname: test-roy
         host: localhost
         port: 3306
-        user: test-user
-        password: 12345
+        user:
+        password:
         driver: pdo_mysql
         server_version: '5.7'
         charset: utf8
