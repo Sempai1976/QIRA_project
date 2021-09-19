@@ -12,19 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MessageController extends AbstractController
 {
-    //Localhost
     private $email_host = 'smtp.gmail.com';
     private $email_port = '587';
     private $email_encr = 'tls';
-    private $email_user = 'karate.beitshemesh@gmail.com';
-    private $email_pass = 'jRh73Bm89FsE29Dc';
-
-   //Remote hosting
-//    private $email_host = 'myproject.shinkyokushin.org.il';
-//    private $email_port = '465';
-//    private $email_encr = 'ssl';
-//    private $email_user = 'mail@myproject.shinkyokushin.org.il';
-//    private $email_pass = '&t_hcbzm=BnN';
+    private $email_user = '';
+    private $email_pass = '';
 
     /**
      * @Route("/", name="home")
