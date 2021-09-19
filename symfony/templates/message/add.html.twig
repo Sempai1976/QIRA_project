@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}
+    <meta name="description" content="Add message / Qira Test Project">
+{% endblock %}
+{% block title %}Add message{% endblock %}
+{% block canonical_url %}
+    <link rel="canonical" href="{{ url('add_message') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h2>Add message</h2>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form(add_message) }}
+{% endblock %}

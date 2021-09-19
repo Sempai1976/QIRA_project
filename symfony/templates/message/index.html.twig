@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="modal fade" id="confirm-part-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Confirm delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="text-center" style="color: red; padding-top: 5px;">Do you want to delete this message?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h2>Message List</h2>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% if messages|length > 0 %}
+        {% for item in messages %}
+{#            	    {{ dump(item) }}#}
+            <div class="alert alert-info">
+                <p>Message: <strong>{{ item.id }}</strong></p>
+                <p>Email: <strong>{{ item.email }}</strong></p>
+                <p>Subject: <strong>{{ item.subject }}</strong></p>
+                <p>Text Body: <strong>{{ item.message }}</strong></p>
+                <a class="btn btn-danger" href="#" data-href="{{ path('delete_message', {id: item.id}) }}" data-toggle="modal" data-target="#confirm-part-delete">Delete</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning alert-dismissible">
+            No messages found!
+        </div>
+    {% endif %}
+    <a class="btn btn-success btn-block" href="{{ path('add_message') }}" style="padding: 20px; font-size: 1.1rem;">Add message</a>
+{% endblock %}

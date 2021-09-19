@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block description %}
+        <meta name="description" content="Home / Qira Test Project">
+    {% endblock %}
+    <meta name="author" content="">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="icon" href="{{ url('home') }}{{ asset('/images/favicon.ico') }}">
+    {% block canonical_url %}
+        <link rel="canonical" href="{{ url('home') }}">
+    {% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    {% block stylesheets %}
+        <link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" role="navigation">
+        <a class="navbar-brand" href="{{ path('home') }}" role="banner">Qira Test Project</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Switch navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('add_message') }}">Add message</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="container">
+    {% block body %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="pull-right">
+            <span class="text-muted">&copy; by Vitaliy Lyakishev</span>
+        </div>
+        <span class="text-muted">Powered by Symfony</span>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+{% block javascripts %}
+    <script src="{{ asset('/js/script.js') }}" type="text/javascript"></script>
+{% endblock %}
+</body>
+</html>
+
